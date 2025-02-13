@@ -1,13 +1,22 @@
 const express = require('express');
-const app = express();
-const parkingLotRoutes = require('./routes/parkingLotRoutes');
-const bodyParser = require('body-parser');
+const cors = require('cors');
+const parkingRoutes = require('./routes/parkingLotRoutes');
 const dotenv = require('dotenv');
 
 dotenv.config();
 
-app.use(bodyParser.json());
+const app = express();
 
+// 🔹 Permitir cualquier origen
+app.use(cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
+
+
+app.use(express.json());
 app.use('/parkinglot', parkingLotRoutes);
 
 const PORT = process.env.PORT || 7006;
