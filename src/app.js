@@ -20,6 +20,7 @@ app.use(express.json());
 app.use('/parkinglot', parkingLotRoutes);
 
 const PORT = process.env.PORT || 7006;
-app.listen(PORT, () => {
-  console.log(`Parking lot delete microservice running on port ${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`🚀 Parking lot delete microservice running on port ${PORT}`);
 });
+
