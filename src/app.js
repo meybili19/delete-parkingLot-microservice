@@ -17,7 +17,7 @@ app.use(cors({
 
 
 app.use(express.json());
-app.use('/parkinglot', parkingLotRoutes);
+app.use('/parkinglot', parkingRoutes);
 
 const PORT = process.env.PORT || 7006;
 app.listen(PORT, '0.0.0.0', () => {
