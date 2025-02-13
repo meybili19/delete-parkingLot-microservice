@@ -48,11 +48,11 @@ jobs:
             # Ejecutar el nuevo contenedor con las variables de entorno
             echo "🚀 Ejecutando nuevo contenedor..."
             sudo docker run -d --name delete_parkinglot_microservice_container \
-              -env DB_HOST=${{ secrets.DB_HOST_M }} \
-              -env DB_USER=${{ secrets.DB_USER_M }} \
-              -env DB_PASSWORD=${{ secrets.DB_PASSWORD_M }} \
-              -env DB_NAME=${{ secrets.DB_NAME_M }} \
-              -env PARKING_SERVICE_URL=${{ secrets.PARKING_SERVICE_URL_M }} \
+              -e DB_HOST=${{ secrets.DB_HOST_M }} \
+              -e DB_USER=${{ secrets.DB_USER_M }} \
+              -e DB_PASSWORD=${{ secrets.DB_PASSWORD_M }} \
+              -e DB_NAME=${{ secrets.DB_NAME_M }} \
+              -e PARKING_SERVICE_URL=${{ secrets.PARKING_SERVICE_URL_M }} \
               -p 7006:7006 \
               ${{ secrets.DOCKER_USERNAME }}/delete_parkinglot_microservice_image:latest
 
